@@ -1,12 +1,11 @@
 package com.hattolo.consolesounds.mixin;
 
-import com.hattolo.consolesounds.ConsoleSoundsClient;
 import com.hattolo.consolesounds.ConsoleSoundsConfig;
+import com.hattolo.consolesounds.ConsoleSoundsSounds;
+
 import me.shedaniel.autoconfig.AutoConfig;
-import net.fabricmc.fabric.mixin.networking.accessor.MinecraftClientAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,7 +22,7 @@ public class ExitScreenMixin {
         //System.out.println("Key pressed");
         if (keyCode == GLFW.GLFW_KEY_ESCAPE && screen.shouldCloseOnEsc()) {
             //System.out.println("Play sound");
-            if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnMenuExit) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsClient.UI_BACK_EVENT, 1.0F));
+            if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnMenuExit) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_BACK, 1.0F));
         }
     }
 }

@@ -6,11 +6,11 @@
   "name": "Console Sounds",
   "description": "This adds new sounds from legacy console Minecraft to Java!",
   "authors": [
-    "hattolo (or Hattozo)"
+    "hattolo (or Hattozo)",
+    "S-N00B-1"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/hattolo/consolesounds"
+    "sources": "https://github.com/S-N00B-1/consolesounds"
   },
 
   "license": "MIT",
@@ -29,12 +29,8 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.11.3",
-    "fabric": "*",
-    "minecraft": "1.17.x",
-    "java": ">=16"
+    "minecraft": ">=1.19.3"
   },
   "suggests": {
-    "another-mod": "*"
   }
 }
