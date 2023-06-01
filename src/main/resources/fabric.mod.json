@@ -14,7 +14,7 @@
   },
 
   "license": "MIT",
-  "icon": "assets/consolemod/icon.png",
+  "icon": "assets/consolemod/modicon.png",
 
   "environment": "*",
   "entrypoints": {
