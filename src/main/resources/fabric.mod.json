@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Console Sounds",
-  "description": "This adds new sounds from legacy console Minecraft to Java!",
+  "description": "Adds menu sounds from Legacy Console versions of Minecraft ",
   "authors": [
     "hattolo (or Hattozo)",
     "S-N00B-1"
@@ -14,6 +14,7 @@
   },
 
   "license": "MIT",
+  "icon": "assets/consolemod/icon.png",
 
   "environment": "*",
   "entrypoints": {
