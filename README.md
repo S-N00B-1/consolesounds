@@ -1,7 +1,5 @@
-# Console Sounds
+![modbanner](https://github.com/S-N00B-1/consolesounds/assets/49575478/74c4585d-730b-49a0-a7f2-bc1952c6dcac)
+<h1 align="center">Console Sounds</h1>
+<div align="center">A small mod that brings legacy console edition menu sounds to java
 
-This mod just adds the sounds from the XBOX 360 and PlayStation 3 versions of Minecraft to its original counterpart.
-
-## License
-
-This mod is available under the MIT license. The license must be incorporated in your projects if you want to use this.
+</div>
