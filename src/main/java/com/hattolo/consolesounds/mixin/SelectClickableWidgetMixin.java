@@ -7,6 +7,7 @@ import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.sound.PositionedSoundInstance;
+import net.minecraft.sound.SoundCategory;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -29,7 +30,10 @@ public class SelectClickableWidgetMixin {
 			if (!widget.active) return;
 			if (!selected) {
 				selected = true;
-				if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableHoverSounds) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_SELECT, (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().hoverVolume / 100), randFloat(1.05f, 1.15f)));
+				if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableHoverSounds) {
+					MinecraftClient.getInstance().getSoundManager().play(
+					new PositionedSoundInstance(ConsoleSoundsSounds.UI_SELECT, SoundCategory.MASTER, (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().hoverVolume / 100), randFloat(1.05f, 1.15f), 0F, 0F, 0F));
+				}
 			}
 		}
 		else {

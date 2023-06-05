@@ -15,6 +15,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class CraftItemStackMixin {
     @Inject(at = @At("HEAD"), method = "onCraft")
     private void init(CallbackInfo ci) {
-        if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableCraftingSounds) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.ENTITY_ITEM_PICKUP, (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().craftingVolume / 100), 1.0F));
+        if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableCraftingSounds) {
+					MinecraftClient.getInstance().getSoundManager().play(
+					new PositionedSoundInstance(SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.MASTER, (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().craftingVolume / 100), 1.0F, 0F, 0F, 0F));
+				}
     }
 }

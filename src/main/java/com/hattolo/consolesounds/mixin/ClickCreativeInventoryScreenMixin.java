@@ -15,6 +15,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class ClickCreativeInventoryScreenMixin {
     @Inject(at = @At("HEAD"), method = "onMouseClick(Lnet/minecraft/screen/slot/Slot;IILnet/minecraft/screen/slot/SlotActionType;)V")
     private void onMouseClick(CallbackInfo ci) {
-        if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableInGameClickSounds) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().inGameClickVolume / 100), 1.0F));
+        if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableInGameClickSounds) {
+					MinecraftClient.getInstance().getSoundManager().play(
+					new PositionedSoundInstance(ConsoleSoundsSounds.UI_BUTTON_CLICK, SoundCategory.MASTER, (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().inGameClickVolume / 100), 1.0F, 0F, 0F, 0F));
+				}
     }
 }
