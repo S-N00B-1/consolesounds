@@ -22,7 +22,7 @@ public class ExitScreenMixin {
         //System.out.println("Key pressed");
         if (keyCode == GLFW.GLFW_KEY_ESCAPE && screen.shouldCloseOnEsc()) {
             //System.out.println("Play sound");
-            if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnMenuExit) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_BACK, 1.0F));
+            if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnMenuExit) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_BACK, (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().menuExitVolume / 100)));
         }
     }
 }
