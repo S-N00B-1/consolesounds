@@ -27,7 +27,7 @@ public class SlotClickedRecipeBookMixin {
     private void slotClicked(@Nullable Slot slot, CallbackInfo ci) {
         if (slot != null && slot.id < craftingScreenHandler.getCraftingSlotCount()) {
             if (ghostSlots.getSlotCount() > 0) {
-                if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableCraftingSounds) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_FAIL, (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().craftingVolume / 100)));
+                if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableCraftingSounds) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_FAIL, (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().craftingVolume / 100), 1.0F));
             }
         }
     }

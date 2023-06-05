@@ -17,6 +17,6 @@ public class CloseHandledScreenMixin {
     @Inject(at = @At("HEAD"), method = "close()V")
     private void onClose(CallbackInfo ci) {
         //System.out.println("Menu closed");
-        if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnInGameMenuExit) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_BACK, (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().onInGameMenuExitVolume / 100)));
+        if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnInGameMenuExit) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_BACK, (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().onInGameMenuExitVolume / 100), 1.0F));
     }
 }
