@@ -22,10 +22,7 @@ public class ConsoleSoundsConfig implements ConfigData {
     public boolean playSoundOnMenuExit = true;
     @Comment("Plays the back sound whenever you close an in-game menu, like a crafting table or your inventory.")
     public boolean playSoundOnInGameMenuExit = true;
-}
 
-@Config(name = "volume")
-public static class ConsoleSoundsConfig implements ConfigData {
     @Comment("Volume when you hover over buttons.")
     public float hoverVolume = 100;
     @Comment("Volume when you click on a slot on an in-game menu.")
@@ -43,3 +40,4 @@ public static class ConsoleSoundsConfig implements ConfigData {
     @Comment("Volume when you close an in-game menu.")
     public float onInGameMenuExitVolume = 100;
 }
+
