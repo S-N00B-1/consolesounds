@@ -19,10 +19,7 @@ public class OpenPauseMenuMixin {
     @Inject(at = @At("TAIL"), method = "openPauseMenu")
     private void init(boolean pause, CallbackInfo ci) {
         if (MinecraftClient.getInstance().currentScreen instanceof GameMenuScreen) {
-            if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnPauseMenu) {
-					MinecraftClient.getInstance().getSoundManager().play(
-					new PositionedSoundInstance(ConsoleSoundsSounds.UI_BUTTON_CLICK, SoundCategory.MASTER, (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().onPauseMenuVolume / 100), 1.0F, 0F, 0F, 0F));
-				}
+            if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnPauseMenu) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1.0F));
         }
     }
 }
