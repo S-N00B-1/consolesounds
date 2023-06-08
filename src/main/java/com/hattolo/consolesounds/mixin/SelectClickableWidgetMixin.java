@@ -29,7 +29,12 @@ public class SelectClickableWidgetMixin {
 			if (!widget.active) return;
 			if (!selected) {
 				selected = true;
-				if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableHoverSounds) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_SELECT, randFloat(1.05f, 1.15f), ((AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().hoverVolume) / 100.0F)));
+				if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableHoverSounds) {
+        			SoundEvent eventSound = SoundEvents.UI_SELECT.get();
+        			float eventVolume = AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().hoverVolume;
+        			float volume = eventVolume / 100.0F;
+        			MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(eventSound, randFloat(1.05f, 1.15f), volume));
+				}
 			}
 		}
 		else {
