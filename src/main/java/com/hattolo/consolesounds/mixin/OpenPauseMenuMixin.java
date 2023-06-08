@@ -20,10 +20,9 @@ public class OpenPauseMenuMixin {
     private void init(boolean pause, CallbackInfo ci) {
         if (MinecraftClient.getInstance().currentScreen instanceof GameMenuScreen) {
             if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnPauseMenu) {
-                SoundEvent eventSound = ConsoleSoundsSounds.UI_BUTTON_CLICK;
                 float eventVolume = AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().openPauseMenu;
                 float volume = eventVolume / 100.0F;
-                MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(eventSound, 1.0F, volume));
+                MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_BUTTON_CLICK, 1.0F, volume));
             }
         }
     }
