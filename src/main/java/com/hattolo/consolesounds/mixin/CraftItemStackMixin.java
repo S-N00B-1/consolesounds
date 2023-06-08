@@ -18,7 +18,7 @@ public class CraftItemStackMixin {
         if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableCraftingSounds) {
             float eventVolume = AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().craftingVolume;
             float volume = eventVolume / 100.0F;
-            MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.ENTITY_ITEM_PICKUP;, 1.0F, volume));
+            MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.ENTITY_ITEM_PICKUP, 1.0F, volume));
         }
     }
 }
