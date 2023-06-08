@@ -22,7 +22,7 @@ public class OpenPauseMenuMixin {
             if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnPauseMenu) {
                 float eventVolume = AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().onPauseMenuVolume;
                 float volume = eventVolume / 100.0F;
-                MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK.get(), 1.0F, volume));
+                MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK.value(), 1.0F, volume));
             }
         }
     }
