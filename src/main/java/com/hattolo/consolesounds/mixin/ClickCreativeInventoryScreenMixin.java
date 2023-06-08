@@ -16,7 +16,7 @@ public class ClickCreativeInventoryScreenMixin {
     @Inject(at = @At("HEAD"), method = "onMouseClick(Lnet/minecraft/screen/slot/Slot;IILnet/minecraft/screen/slot/SlotActionType;)V")
     private void onMouseClick(CallbackInfo ci) {
         if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableInGameClickSounds) {
-            SoundEvent eventSound = SoundEvents.UI_BUTTON_CLICK.get();
+            SoundEvent eventSound = ConsoleSoundsSounds.UI_BUTTON_CLICK;
             float eventVolume = AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().inGameClickVolume;
             float volume = eventVolume / 100.0F;
             MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(eventSound, 1.0F, volume));

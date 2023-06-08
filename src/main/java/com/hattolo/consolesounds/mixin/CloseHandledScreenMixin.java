@@ -18,7 +18,7 @@ public class CloseHandledScreenMixin {
     private void onClose(CallbackInfo ci) {
         //System.out.println("Menu closed");
         if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnInGameMenuExit) {
-            SoundEvent eventSound = SoundEvents.UI_BACK.get();
+            SoundEvent eventSound = ConsoleSoundsSounds.UI_BACK;
             float eventVolume = AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().onInGameMenuExitVolume;
             float volume = eventVolume / 100.0F;
             MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(eventSound, 1.0F, volume));

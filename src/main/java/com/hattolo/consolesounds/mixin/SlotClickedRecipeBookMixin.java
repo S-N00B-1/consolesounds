@@ -28,7 +28,7 @@ public class SlotClickedRecipeBookMixin {
         if (slot != null && slot.id < craftingScreenHandler.getCraftingSlotCount()) {
             if (ghostSlots.getSlotCount() > 0) {
                 if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableCraftingSounds) {
-                    SoundEvent eventSound = SoundEvents.UI_FAIL.get();
+                    SoundEvent eventSound = ConsoleSoundsSounds.UI_FAIL;
                     float eventVolume = AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().craftingVolume;
                     float volume = eventVolume / 100.0F;
                     MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(eventSound, 1.0F, volume));

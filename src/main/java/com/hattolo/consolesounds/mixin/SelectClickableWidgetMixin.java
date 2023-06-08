@@ -30,7 +30,7 @@ public class SelectClickableWidgetMixin {
 			if (!selected) {
 				selected = true;
 				if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableHoverSounds) {
-        			SoundEvent eventSound = SoundEvents.UI_SELECT.get();
+        			SoundEvent eventSound = ConsoleSoundsSounds.UI_SELECT;
         			float eventVolume = AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().hoverVolume;
         			float volume = eventVolume / 100.0F;
         			MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(eventSound, randFloat(1.05f, 1.15f), volume));
