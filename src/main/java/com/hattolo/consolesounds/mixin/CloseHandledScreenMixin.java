@@ -2,7 +2,6 @@ package com.hattolo.consolesounds.mixin;
 
 import com.hattolo.consolesounds.ConsoleSoundsConfig;
 import com.hattolo.consolesounds.ConsoleSoundsSounds;
-
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;

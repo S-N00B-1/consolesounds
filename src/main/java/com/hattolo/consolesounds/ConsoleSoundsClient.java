@@ -1,6 +1,7 @@
 package com.hattolo.consolesounds;
 
 import com.hattolo.consolesounds.ConsoleSoundsSounds;
+
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
@@ -13,10 +14,8 @@ public class ConsoleSoundsClient implements ClientModInitializer {
     public static final Logger LOGGER = LogManager.getLogger("Console Sounds");
 
 	public static Identifier id(String path) {
-        return new Identifier(MOD_ID, path);
+        return Identifier.of(MOD_ID, path);
     }
-
-	
 
     @Override
     public void onInitializeClient() {

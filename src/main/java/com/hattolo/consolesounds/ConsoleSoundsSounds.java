@@ -1,11 +1,11 @@
 package com.hattolo.consolesounds;
 
 import com.hattolo.consolesounds.ConsoleSoundsClient;
+
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.sound.SoundEvent;
-
 
 public final class ConsoleSoundsSounds {
 
