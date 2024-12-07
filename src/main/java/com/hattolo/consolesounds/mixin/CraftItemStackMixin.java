@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ItemStack.class)
 public class CraftItemStackMixin {
-    @Inject(at = @At("HEAD"), method = "onCraft")
+    @Inject(at = @At("HEAD"), method = "onCraftByPlayer")
     private void init(CallbackInfo ci) {
         if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableCraftingSounds) {
             float eventVolume = AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().craftingVolume;

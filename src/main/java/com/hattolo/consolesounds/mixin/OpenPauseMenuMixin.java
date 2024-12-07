@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftClient.class)
 public class OpenPauseMenuMixin {
-    @Inject(at = @At("TAIL"), method = "openPauseMenu")
+    @Inject(at = @At("TAIL"), method = "openGameMenu")
     private void init(boolean pause, CallbackInfo ci) {
         if (MinecraftClient.getInstance().currentScreen instanceof GameMenuScreen) {
             if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnPauseMenu) {

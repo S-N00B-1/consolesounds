@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(RecipeBookWidget.class)
 public class SlotClickedRecipeBookMixin {
-    @Shadow protected AbstractRecipeScreenHandler<?> craftingScreenHandler;
+    @Shadow protected AbstractRecipeScreenHandler<?,?> craftingScreenHandler;
     @Shadow @Final protected RecipeBookGhostSlots ghostSlots;
 
     @Inject(at = @At("HEAD"), method = "slotClicked")
