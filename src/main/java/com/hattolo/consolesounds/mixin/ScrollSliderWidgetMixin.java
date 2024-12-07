@@ -23,7 +23,11 @@ public class ScrollSliderWidgetMixin {
         double v = MathHelper.clamp(roundDown2(newValue), 0.0D, 1.0D);
         double ov = MathHelper.clamp(roundDown2(value), 0.0D, 1.0D);
 
-        if (v != ov && AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableSliderSounds) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_SCROLL, 1.0F));
+        if (v != ov && AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().enableSliderSounds) {
+            float eventVolume = AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().sliderVolume;
+            float volume = eventVolume / 100.0F;
+            MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_SCROLL, 1.0F, volume));
+        }
 
         //System.out.println("value: " + value + " oldvalue: " + oldValue + " v: " + v + " ov: " + ov);
     }

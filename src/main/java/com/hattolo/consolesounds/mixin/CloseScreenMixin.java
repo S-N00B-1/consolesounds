@@ -16,6 +16,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class CloseScreenMixin {
     @Inject(at = @At("HEAD"), method = "close()V")
     private void onClose(CallbackInfo ci) {
-        if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnMenuExit) MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_BACK, 1.0F));
+        if (AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().playSoundOnMenuExit) {
+            float eventVolume = AutoConfig.getConfigHolder(ConsoleSoundsConfig.class).getConfig().menuExitVolume;
+            float volume = eventVolume / 100.0F;
+            MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(ConsoleSoundsSounds.UI_BACK, 1.0F, volume));
+        }
     }
 }
