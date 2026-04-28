@@ -1,0 +1,22 @@
+{
+  "ui_select": {
+    "sounds": [
+      "consolemod:ui_select"
+    ]
+  },
+  "ui_back": {
+    "sounds": [
+      "consolemod:ui_back"
+    ]
+  },
+  "ui_scroll": {
+    "sounds": [
+      "consolemod:ui_scroll"
+    ]
+  },
+  "ui_fail": {
+    "sounds": [
+      "consolemod:ui_fail"
+    ]
+  }
+}

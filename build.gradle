@@ -1,0 +1,85 @@
+plugins {
+	id 'fabric-loom' version '1.14.9'
+	id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+repositories {
+	// For Mod Menu
+	maven {
+		url "https://maven.terraformersmc.com/releases/"
+	}
+	// For YACL
+	maven {
+		url "https://maven.isxander.dev/releases"
+	}
+	// For Sodium
+	maven {
+		url "https://api.modrinth.com/maven"
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings loom.officialMojangMappings()
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	// Fabric API.
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	// Mod Menu
+	modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
+	// Cloth Config
+	modApi("dev.isxander:yet-another-config-lib:${project.yacl_version}")
+	include("dev.isxander:yet-another-config-lib:${project.yacl_version}")
+
+	modImplementation "maven.modrinth:sodium:${project.sodium_version}"
+}
+
+base {
+	archivesName = project.archives_base_name
+}
+
+processResources {
+	inputs.property "version", project.version
+	inputs.property "yacl_version", project.yacl_version
+	inputs.property "minecraft_version", project.minecraft_version
+	inputs.property "sodium_version", project.sodium_version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": project.version,
+				"yacl_version": project.yacl_version,
+				"minecraft_version": project.minecraft_version,
+				"sodium_version": project.sodium_version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 21
+}
+
+java {
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${base.archivesName.get()}"}
+	}
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+		}
+	}
+
+	repositories {
+	}
+}

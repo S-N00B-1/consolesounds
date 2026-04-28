@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "consolesounds",
+  "version": "${version}",
+
+  "name": "Console Sounds",
+  "description": "Adds menu sounds from Legacy Console versions of Minecraft ",
+  "authors": [
+    "hattolo (or Hattozo)",
+    "S-N00B-1"
+  ],
+  "contact": {
+    "sources": "https://github.com/S-N00B-1/consolesounds"
+  },
+
+  "license": "MIT",
+  "icon": "assets/consolemod/modicon.png",
+
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "io.github.snoob.consolesounds.ConsoleSoundsClient"
+    ],
+    "modmenu": [
+      "io.github.snoob.consolesounds.ConsoleSoundsModMenu"
+    ]
+  },
+  "mixins": [
+    "consolemod.mixins.json"
+  ],
+
+  "depends": {
+    "minecraft": ">=${minecraft_version}",
+    "yet_another_config_lib_v3": ">=${yacl_version}"
+  },
+  "suggests": {
+  }
+}
